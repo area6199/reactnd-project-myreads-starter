@@ -35,7 +35,9 @@ class BooksApp extends React.Component {
           
           path="/"
           render={() => (
-            <Shelf/>
+            <Shelf
+              books = {this.state.books}
+            />
           )}
         />
 
