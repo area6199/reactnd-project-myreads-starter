@@ -13,25 +13,9 @@ export default class SearchPage extends Component {
     this.setState({ query: event.target.value });
   };
 
-  //   clearQuery = () => {
-  //     this.setState({ query: "" });
-  //   };
-
-  //   findBook(input) {
-  //     if(e.keyCode === 13){
-  //         e.preventDefault()
-  //     BooksAPI.search(input).then(books => {
-  //       this.setState({
-  //         books
-  //       })
-  //     })
-  // }
-  //   }
 
   render() {
     const { query } = this.state;
-
-    let searchResult;
     if (query) {
       BooksAPI.search(query).then(books => {
         this.setState({

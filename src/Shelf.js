@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-import ShelfSelection from "./ShelfSelection"
+// import ShelfSelection from "./ShelfSelection"
 import BooksSlectedAfterShelf from "./BooksSlectedAfterShelf"
 
 class Shelf extends Component {  

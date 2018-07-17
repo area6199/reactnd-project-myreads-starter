@@ -1,6 +1,5 @@
-import React, { Component } from "react"
-import ShelfSelection from "./ShelfSelection"
-
+import React, { Component } from "react";
+import ShelfSelection from "./ShelfSelection";
 
 export default class BooksSlectedAfterShelf extends Component {
   render() {
@@ -15,13 +14,24 @@ export default class BooksSlectedAfterShelf extends Component {
                   <div className="book-top">
                     <div
                       className="book-cover"
-                      style={{
-                        width: 128,
-                        height: 193,
-                        backgroundImage: `url(${
-                          book.imageLinks.smallThumbnail
-                        })`
-                      }}
+                      style={
+                        (book.hasOwnProperty("imageLinks") === true && {
+                          width: 128,
+                          height: 193,
+                          backgroundImage: `url(${book.imageLinks.thumbnail})`
+                        }) || {
+                          width: 128,
+                          height: 193,
+                          backgroundColor: "black"
+                        }
+                      }
+                      //   style= {book.hasOwnProperty('imageLinks') === true &&({
+                      //     width: 128,
+                      //     height: 193,
+                      //     backgroundImage: `url(${
+                      //       book.imageLinks.thumbnail
+                      //     })`
+                      //   })}
                     />
                     <ShelfSelection />
                   </div>
