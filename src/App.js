@@ -51,7 +51,9 @@ class BooksApp extends React.Component {
           path="/search"
           render={() => (
             <div>
-              <SearchPage />
+              <SearchPage 
+               onChangeShelf = {this.changeShelf}
+              />
             </div>
           )}
         />

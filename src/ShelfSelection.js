@@ -9,6 +9,7 @@ export default class ShelfSelection extends Component {
           id={this.props.selectedBook.id}
           onChange={() =>
             this.props.onChangeShelf(
+                
               this.props.selectedBook,
               document.getElementById(this.props.selectedBook.id).value
             )

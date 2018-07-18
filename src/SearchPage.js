@@ -63,7 +63,7 @@ export default class SearchPage extends Component {
           <div className="search-books-results">
             <ol className="books-grid">
               {(this.state.books.length > 0 && (
-                <BooksSlectedAfterShelf books={this.state.books} />
+                <BooksSlectedAfterShelf books={this.state.books} onChangeShelf = {this.props.onChangeShelf}/>
               )) || <p> no search results </p>}
             </ol>
           </div>
