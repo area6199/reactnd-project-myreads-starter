@@ -25,15 +25,10 @@ export default class BooksSlectedAfterShelf extends Component {
                           backgroundColor: "black"
                         }
                       }
-                      //   style= {book.hasOwnProperty('imageLinks') === true &&({
-                      //     width: 128,
-                      //     height: 193,
-                      //     backgroundImage: `url(${
-                      //       book.imageLinks.thumbnail
-                      //     })`
-                      //   })}
+
                     />
-                    <ShelfSelection />
+                    <ShelfSelection selectedBook= {book}
+                    onChangeShelf={this.props.onChangeShelf} />
                   </div>
                   <div className="book-title">{book.title}</div>
                   <div className="book-authors">{book.authors}</div>

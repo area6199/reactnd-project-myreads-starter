@@ -22,6 +22,7 @@ class Shelf extends Component {
                 <BooksSlectedAfterShelf
                   books = {booksInShelf}
                   shelf = 'currentlyReading'
+                  onChangeShelf = {this.props.onChangeShelf}
                   />
                 
               </div>
@@ -30,6 +31,8 @@ class Shelf extends Component {
                 <BooksSlectedAfterShelf
                   books = {booksInShelf}
                   shelf = 'wantToRead'
+                  onChangeShelf = {this.props.onChangeShelf}
+
                   />
 
               </div>
@@ -38,6 +41,8 @@ class Shelf extends Component {
                 <BooksSlectedAfterShelf
                   books = {booksInShelf}
                   shelf = 'read'
+                  onChangeShelf = {this.props.onChangeShelf}
+
                   />
 
               </div>
