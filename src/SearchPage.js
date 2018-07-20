@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Books } from "./BooksSlectedAfterShelf";
+import BooksSlectedAfterShelf from "./BooksSlectedAfterShelf";
 import * as BooksAPI from "./BooksAPI";
 import { Link } from "react-router-dom";
 
@@ -12,30 +12,31 @@ export default class SearchPage extends Component {
   handleChange = event => {
     let booksInShelf = [];
     let searchedBooksShelfed = [];
-    let count = true;
+    let addToShelf = true;
 
     this.setState({
       query: event.target.value
     });
     if (event.target.value !== "") {
       BooksAPI.search(event.target.value).then(searchedbooks => {
-        // check if a book is already in a shelf and add this property to
+        // checks if a book is already in a shelf and add this property to
         //  the searched books in order to display this property
         if (typeof searchedbooks.error === "undefined") {
           BooksAPI.getAll().then(requestBooks => {
             booksInShelf = requestBooks;
-            booksInShelf.forEach(elShelf => {
-              searchedbooks.forEach(elSearch => {
-                if (count) {
-                  if (elShelf.id === elSearch.id) {
-                    elSearch.shelf = elShelf.shelf;
-                    searchedBooksShelfed.push(elSearch);
-                  } else {
-                    searchedBooksShelfed.push(elSearch);
-                  }
+
+            searchedbooks.forEach(elSearch => {
+              booksInShelf.forEach(elShelf => {
+                if (elShelf.id === elSearch.id) {
+                  elSearch.shelf = elShelf.shelf;
+                  searchedBooksShelfed.push(elSearch);
+                  addToShelf = false;
                 }
               });
-              count = false;
+              if (addToShelf) {
+                searchedBooksShelfed.push(elSearch);
+              }
+              addToShelf = true;
             });
             this.setState({
               books: searchedBooksShelfed
@@ -83,7 +84,7 @@ export default class SearchPage extends Component {
               {" "}
               {(typeof this.state.books !== "undefined" &&
                 (this.state.books.length > 0 && (
-                  <Books
+                  <BooksSlectedAfterShelf
                     books={this.state.books}
                     onChangeShelf={this.props.onChangeShelf}
                   />
