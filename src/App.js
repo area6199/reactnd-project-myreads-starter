@@ -10,6 +10,8 @@ class BooksApp extends React.Component {
   state = {
     books: []
   };
+
+  // get books in library
   componentDidMount() {
     BooksAPI.getAll().then(books => {
       this.setState({
@@ -17,6 +19,7 @@ class BooksApp extends React.Component {
       });
     });
   }
+  // method to change the shelf of a book
   changeShelf = (bookID, shelfToMove) => {
     BooksAPI.update(bookID, shelfToMove).then(books => {
       BooksAPI.getAll().then(books => {

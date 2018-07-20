@@ -1,13 +1,11 @@
-import React, { Component } from "react"
-import { Link } from "react-router-dom"
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 // import ShelfSelection from "./ShelfSelection"
-import BooksSlectedAfterShelf from "./BooksSlectedAfterShelf"
+import BooksSlectedAfterShelf from "./BooksSlectedAfterShelf";
 
-class Shelf extends Component {  
-
+class Shelf extends Component {
   render() {
-    const booksInShelf = this.props.books
-
+    const booksInShelf = this.props.books;
 
     return (
       <div>
@@ -20,42 +18,33 @@ class Shelf extends Component {
               <div className="bookshelf">
                 <h2 className="bookshelf-title">Currently Reading</h2>
                 <BooksSlectedAfterShelf
-                  books = {booksInShelf}
-                  shelf = 'currentlyReading'
-                  onChangeShelf = {this.props.onChangeShelf}
-                  />
-                
+                  books={booksInShelf}
+                  shelf="currentlyReading"
+                  onChangeShelf={this.props.onChangeShelf}
+                />
               </div>
               <div className="bookshelf">
                 <h2 className="bookshelf-title">Want to Read</h2>
                 <BooksSlectedAfterShelf
-                  books = {booksInShelf}
-                  shelf = 'wantToRead'
-                  onChangeShelf = {this.props.onChangeShelf}
-
-                  />
-
+                  books={booksInShelf}
+                  shelf="wantToRead"
+                  onChangeShelf={this.props.onChangeShelf}
+                />
               </div>
               <div className="bookshelf">
                 <h2 className="bookshelf-title">Read</h2>
                 <BooksSlectedAfterShelf
-                  books = {booksInShelf}
-                  shelf = 'read'
-                  onChangeShelf = {this.props.onChangeShelf}
-
-                  />
-
+                  books={booksInShelf}
+                  shelf="read"
+                  onChangeShelf={this.props.onChangeShelf}
+                />
               </div>
             </div>
           </div>
           <Link to="/search" className="open-search">
-          <a>
-              Add a book
-            </a>
-        </Link>
-
+            <a>Add a book</a>
+          </Link>
         </div>
-  
       </div>
     );
   }
